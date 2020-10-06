@@ -14,3 +14,5 @@ Django お試し環境
 - https://thinkami.hatenablog.com/entry/2020/03/29/091220
 
 - https://qiita.com/frosty/items/bb5bc1553f452e5bb8ff
+
+- https://note.com/takuya814/n/n8cfff1ba0bbf
