@@ -4,4 +4,5 @@ from . import views
 app_name = 'qiiteru'
 urlpatterns = [
    path('', views.index, name='index'),
+   path('detail/<int:post_id>/', views.detail, name='detail'),
 ]
