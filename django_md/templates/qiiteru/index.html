@@ -1,3 +1,6 @@
+{% extends 'base.html' %}
+{% block content %}
+
 <h1>this is index.</h1>
 
 {% for post in posts%}
@@ -11,3 +14,5 @@
 <p>{{post.created_at}}</p>
 <hr>
 {% endfor %}
+
+{% endblock %}
