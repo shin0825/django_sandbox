@@ -25,3 +25,19 @@ def add(request):
    else:
       form = PostAddForm()
    return render(request, 'qiiteru/add.html', {'form': form})
+
+def edit(request, post_id):
+   post = get_object_or_404(Post, id=post_id)
+   if request.method == "POST":
+      form = PostAddForm(request.POST, request.FILES,instance=post)
+      if form.is_valid():
+         form.save()
+         return redirect('qiiteru:detail', post_id=post.id)
+   else:
+      form = PostAddForm(instance=post)
+   return render(request, 'qiiteru/edit.html', {'form': form, 'post': post})
+
+def delete(request, post_id):
+   post = get_object_or_404(Post, id=post_id)
+   post.delete()
+   return redirect('qiiteru:index')

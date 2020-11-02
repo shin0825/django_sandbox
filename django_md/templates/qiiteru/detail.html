@@ -8,5 +8,6 @@
 {% endif %}
 <h4>タイトル：{{ post.title }}</h4>
 <p>内容：{{ post.text }}</p>
-
+<button><a href="{% url 'qiiteru:edit' post_id=post.id %}">編集</a></button>
+<button><a href="{% url 'qiiteru:delete' post_id=post.id %}">削除</a></button> #追加 ここまで
 {% endblock %}

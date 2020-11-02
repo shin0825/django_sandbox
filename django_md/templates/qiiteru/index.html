@@ -3,6 +3,8 @@
 
 <h1>this is index.</h1>
 
+<button><a href="{% url 'qiiteru:add' %}">追加</a></button>
+
 {% for post in posts%}
 <a href="{% url 'qiiteru:detail' post_id=post.id %}">
   {% if post.image %}
