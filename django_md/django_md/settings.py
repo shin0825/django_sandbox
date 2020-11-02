@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'qiiteru',
     'django_cleanup',
     'bootstrap4',
+    'widget_tweaks',
 ]
 
 MIDDLEWARE = [
