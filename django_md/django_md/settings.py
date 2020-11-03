@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'django_cleanup',
     'bootstrap4',
     'widget_tweaks',
+    'user_app',
 ]
 
 MIDDLEWARE = [
@@ -135,3 +136,7 @@ STATIC_URL = '/static/'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
+
+LOGIN_URL = 'user_app:login'
+LOGIN_REDIRECT_URL = 'qiiteru:index'
+LOGOUT_REDIRECT_URL = 'qiiteru:index'
