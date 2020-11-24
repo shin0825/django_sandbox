@@ -2,7 +2,6 @@
 from __future__ import unicode_literals
 from django.db import models
 from django.utils import timezone
-from django.contrib.auth.model import User
 
 # Create your models here.
 class Tag(models.Model):
@@ -16,7 +15,6 @@ class Post(models.Model):
    image = models.ImageField('画像', upload_to = 'images', blank=True)
    created_at = models.DateTimeField('投稿日', default=timezone.now)
    tag = models.ForeignKey(Tag, verbose_name='タグ', on_delete=models.PROTECT)
-   user = models.ForeignKey(User, on_delete=models.CASCADE)
 
    def __str__(self):
        return self.title
