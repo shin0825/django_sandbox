@@ -85,16 +85,29 @@ WSGI_APPLICATION = 'django_md.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-    'ENGINE': 'django.db.backends.postgresql',
-    'NAME': 'testdb',
-    'USER': 'postgres',
-    'PASSWORD': 'mysecretpassword1234',
-    'HOST': 'db',
-    'PORT': 5432,
-  }
-}
+if os.getenv('GAE_APPLICATION', None):
+    # Running on production App Engine, so connect to Google Cloud SQL using
+    # the unix socket at /cloudsql/<your-cloudsql-connection string>
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.mysql',
+            'HOST': '/cloudsql/[YOUR-CONNECTION-NAME]',
+            'USER': '[YOUR-USERNAME]',
+            'PASSWORD': '[YOUR-PASSWORD]',
+            'NAME': '[YOUR-DATABASE]',
+        }
+    }
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql',
+            'NAME': 'testdb',
+            'USER': 'postgres',
+            'PASSWORD': 'mysecretpassword1234',
+            'HOST': 'db',
+            'PORT': 5432,
+        }
+    }
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
